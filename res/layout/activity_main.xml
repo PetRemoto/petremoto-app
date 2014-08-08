@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/cloud_background"
+    android:gravity="center"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <RelativeLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="8dp" >
+
+        <TextView
+            android:id="@+id/textView1"
+            style="@style/DefaultButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/app_name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="40sp"
+            android:typeface="serif" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_mid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_top"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp" >
+
+        <EditText
+            android:id="@+id/editTextLogin"
+            style="@style/DefaultButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/user"
+            android:ems="10"
+            android:hint="@string/userName"
+            android:shadowColor="#AAAAAA"
+            android:singleLine="true"
+            android:textColorHint="#AAAAAA" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            style="@style/DefaultButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextLogin"
+            android:drawableLeft="@drawable/password"
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textWebPassword"
+            android:shadowColor="#AAAAAA"
+            android:singleLine="true"
+            android:textColorHint="#AAAAAA" >
+        </EditText>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_bot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_mid"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp" >
+
+        <Button
+            android:id="@+id/btnSignIn"
+            style="@style/DefaultButtonText"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_default_bg"
+            android:text="@string/signIn" />
+
+        <Button
+            android:id="@+id/btnSignUp"
+            style="@style/DefaultButtonText"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/btnSignIn"
+            android:background="@drawable/button_default_bg"
+            android:text="@string/signUP" />
+    </RelativeLayout>
+
+</RelativeLayout>

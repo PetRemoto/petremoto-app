@@ -1,0 +1,12 @@
+#Organize Import Order
+#Thu Aug 07 00:54:46 BRT 2014
+9=javax
+8=java
+7=org
+6=net
+5=libcore
+4=junit
+3=gov
+2=dalvik
+1=com
+0=android
