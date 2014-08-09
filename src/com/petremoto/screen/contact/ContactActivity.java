@@ -11,24 +11,25 @@ import android.widget.EditText;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
+import com.petremoto.R;
 import com.petremoto.asynctask.PostJSONTask;
 import com.petremoto.asynctask.PostJSONTask.PostJSONInterface;
 import com.petremoto.utils.APIUtils;
 import com.petremoto.utils.AuthPreferences;
 import com.petremoto.utils.MyLog;
 import com.petremoto.utils.ThinerUtils;
-import com.thiner.R;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.LinkedList;
 import java.util.List;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * The Class MainActivity.
  */
-public final class ContactActivity extends Activity implements PostJSONInterface {
+public final class ContactActivity extends Activity implements
+        PostJSONInterface {
 
     private EditText mEditTxtLastName;
     private EditText mEditTxtFirstName;
@@ -90,7 +91,8 @@ public final class ContactActivity extends Activity implements PostJSONInterface
         final String firstname = mEditTxtFirstName.getText().toString().trim();
         final String lastname = mEditTxtLastName.getText().toString().trim();
         final String newPass = mEditTxtNewPassword.getText().toString().trim();
-        final String confirNewPass = mEditTxtConfirmNewPassword.getText().toString().trim();
+        final String confirNewPass = mEditTxtConfirmNewPassword.getText()
+                .toString().trim();
 
         String params = APIUtils.putAttrs("id", AuthPreferences.getID(this));
 
@@ -103,7 +105,8 @@ public final class ContactActivity extends Activity implements PostJSONInterface
 
         }
 
-        if (Strings.isNullOrEmpty(newPass) != Strings.isNullOrEmpty(confirNewPass)) {
+        if (Strings.isNullOrEmpty(newPass) != Strings
+                .isNullOrEmpty(confirNewPass)) {
 
             if (Strings.isNullOrEmpty(newPass)) {
                 ThinerUtils.showToast(this, "You forget your new pass.");
@@ -113,7 +116,8 @@ public final class ContactActivity extends Activity implements PostJSONInterface
                 return;
             }
 
-        } else if (!Strings.isNullOrEmpty(newPass) && !Strings.isNullOrEmpty(confirNewPass)) {
+        } else if (!Strings.isNullOrEmpty(newPass)
+                && !Strings.isNullOrEmpty(confirNewPass)) {
 
             if (newPass.equals(confirNewPass)) {
                 params += "&" + APIUtils.putAttrs("password", newPass);
@@ -123,7 +127,8 @@ public final class ContactActivity extends Activity implements PostJSONInterface
             }
         }
 
-        if (params.length() == APIUtils.putAttrs("id", AuthPreferences.getID(this)).length()) {
+        if (params.length() == APIUtils.putAttrs("id",
+                AuthPreferences.getID(this)).length()) {
             ThinerUtils.showToast(this, "You should change something.");
             return;
         }
@@ -140,7 +145,8 @@ public final class ContactActivity extends Activity implements PostJSONInterface
         MyLog.debug(json.toString());
 
         try {
-            if (status.has("status") && status.getString("status").equalsIgnoreCase("success")) {
+            if (status.has("status")
+                    && status.getString("status").equalsIgnoreCase("success")) {
                 ThinerUtils.showToast(this, "Profile edited.");
             } else {
                 ThinerUtils.showToast(this, "Something wrong. :(");

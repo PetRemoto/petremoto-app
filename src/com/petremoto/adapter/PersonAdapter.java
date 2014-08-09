@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.petremoto.R;
 import com.petremoto.model.Person;
-import com.thiner.R;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,8 @@ public class PersonAdapter extends ArrayAdapter<Person> {
     }
 
     @Override
-    public View getView(final int position, final View convertView, final ViewGroup parent) {
+    public View getView(final int position, final View convertView,
+            final ViewGroup parent) {
 
         View row = convertView;
 
@@ -38,7 +39,8 @@ public class PersonAdapter extends ArrayAdapter<Person> {
 
         if (row == null) {
 
-            final LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
+            final LayoutInflater inflater = ((Activity) mContext)
+                    .getLayoutInflater();
             row = inflater.inflate(mLayoutResourceId, parent, false);
 
             holder = new PersonHolder();

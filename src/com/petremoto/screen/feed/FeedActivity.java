@@ -8,9 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.petremoto.R;
 import com.petremoto.screen.dispensers.DispenserActivity;
 import com.petremoto.screen.person.PersonActivity;
-import com.thiner.R;
 
 import java.util.LinkedList;
 import java.util.List;

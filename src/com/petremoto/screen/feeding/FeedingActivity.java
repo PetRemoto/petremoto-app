@@ -9,11 +9,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.common.base.Preconditions;
+import com.petremoto.R;
 import com.petremoto.asynctask.PostJSONTask;
 import com.petremoto.asynctask.PostJSONTask.PostJSONInterface;
 import com.petremoto.utils.APIUtils;
 import com.petremoto.utils.ThinerUtils;
-import com.thiner.R;
 
 import java.util.LinkedList;
 import java.util.List;

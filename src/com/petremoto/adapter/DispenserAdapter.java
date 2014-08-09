@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.petremoto.R;
 import com.petremoto.model.Dispenser;
 import com.petremoto.utils.ThinerUtils;
-import com.thiner.R;
 
 import java.util.ArrayList;
 

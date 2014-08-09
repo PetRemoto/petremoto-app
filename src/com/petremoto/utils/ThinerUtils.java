@@ -8,7 +8,7 @@ import android.net.NetworkInfo;
 import android.view.Gravity;
 import android.widget.Toast;
 
-import com.thiner.R;
+import com.petremoto.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;

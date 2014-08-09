@@ -15,6 +15,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import com.petremoto.R;
 import com.petremoto.adapter.PersonAdapter;
 import com.petremoto.asynctask.GetJSONTask;
 import com.petremoto.asynctask.GetJSONTask.GetJSONInterface;
@@ -26,7 +27,6 @@ import com.petremoto.utils.APIUtils;
 import com.petremoto.utils.AuthPreferences;
 import com.petremoto.utils.MyLog;
 import com.petremoto.utils.ThinerUtils;
-import com.thiner.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
