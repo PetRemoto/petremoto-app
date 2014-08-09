@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.thiner.screen.main.MainActivity"
+            android:name="com.petremoto.screen.main.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -27,14 +27,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.thiner.screen.person.PersonActivity"
+            android:name="com.petremoto.screen.person.PersonActivity"
             android:label="@string/contact_activity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.thiner.screen.request.RequestActivity"
+            android:name="com.petremoto.screen.request.RequestActivity"
             android:label="@string/request"
-            android:parentActivityName="com.thiner.screen.person.PersonActivity"
+            android:parentActivityName="com.petremoto.screen.person.PersonActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -43,43 +43,43 @@
         <activity
             android:name="com.thiner.screen.signin.SignInActivity"
             android:label="@string/app_name"
-            android:parentActivityName="com.thiner.screen.main.MainActivity"
+            android:parentActivityName="com.petremoto.screen.main.MainActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.thiner.screen.main.MainActivity" />
         </activity>
         <activity
-            android:name="com.thiner.screen.signup.SignUpActivity"
+            android:name="com.petremoto.screen.signup.SignUpActivity"
             android:label="@string/app_name"
-            android:parentActivityName="com.thiner.screen.main.MainActivity"
+            android:parentActivityName="com.petremoto.screen.main.MainActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.thiner.screen.main.MainActivity" />
         </activity>
         <activity
-            android:name="com.thiner.screen.search.SearchActivity"
+            android:name="com.petremoto.screen.search.SearchActivity"
             android:label="@string/search"
-            android:parentActivityName="com.thiner.screen.person.PersonActivity"
+            android:parentActivityName="com.petremoto.screen.person.PersonActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.thiner.screen.person.PersonActivity" />
         </activity>
         <activity
-            android:name="com.thiner.screen.profile.ProfileActivity"
+            android:name="com.petremoto.screen.profile.ProfileActivity"
             android:label="@string/profile"
-            android:parentActivityName="com.thiner.screen.person.PersonActivity"
+            android:parentActivityName="com.petremoto.screen.person.PersonActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.thiner.screen.person.PersonActivity" />
         </activity>
         <activity
-            android:name="com.thiner.screen.contact.ContactActivity"
+            android:name="com.petremoto.screen.contact.ContactActivity"
             android:label="@string/contact"
-            android:parentActivityName="com.thiner.screen.profile.ProfileActivity"
+            android:parentActivityName="com.petremoto.screen.profile.ProfileActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -87,9 +87,39 @@
         </activity>
         <activity
             android:name="com.thiner.screen.friend.FriendActivity"
-            android:parentActivityName="com.thiner.screen.person.PersonActivity"
+            android:parentActivityName="com.petremoto.screen.person.PersonActivity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.petremoto.screen.feed.FeedActivity"
+            android:label="@string/feedActivity"
+            android:parentActivityName="com.petremoto.screen.main"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.thiner.screen.main" />
+        </activity>
+        
+        <activity
+            android:name="com.petremoto.screen.dispensers.DispenserActivity"
+            android:label="@string/feedActivity"
+            android:parentActivityName="com.petremoto.screen.feed"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.thiner.screen.FeedActivity" />
+        </activity>
+        
+        <activity
+            android:name="com.petremoto.screen.feeding.FeedingActivity"
+            android:label="@string/feedingActivity"
+            android:parentActivityName="com.petremoto.screen.dispensers.DispenserActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.petremoto.screen.dispensers.DispenserActivity" />
+        </activity>        
+        
     </application>
 
 </manifest>

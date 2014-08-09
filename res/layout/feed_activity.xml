@@ -34,34 +34,6 @@
         android:layout_below="@+id/layout_top"
         android:layout_centerHorizontal="true"
         android:padding="10dp" >
-
-        <EditText
-            android:id="@+id/editTextLogin"
-            style="@style/DefaultButtonText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/user"
-            android:ems="10"
-            android:hint="@string/userName"
-            android:shadowColor="#AAAAAA"
-            android:singleLine="true"
-            android:textColorHint="#AAAAAA" >
-        </EditText>
-
-        <EditText
-            android:id="@+id/editTextPassword"
-            style="@style/DefaultButtonText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editTextLogin"
-            android:drawableLeft="@drawable/password"
-            android:ems="10"
-            android:hint="@string/password"
-            android:inputType="textWebPassword"
-            android:shadowColor="#AAAAAA"
-            android:singleLine="true"
-            android:textColorHint="#AAAAAA" >
-        </EditText>
     </RelativeLayout>
 
     <RelativeLayout
@@ -73,21 +45,30 @@
         android:padding="10dp" >
 
         <Button
-            android:id="@+id/btnSignIn"
+            android:id="@+id/btnFeed"
             style="@style/DefaultButtonText"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:background="@drawable/button_default_bg"
-            android:text="@string/signIn" />
+            android:text="@string/feed" />
 
         <Button
-            android:id="@+id/btnSignUp"
+            android:id="@+id/btnSchedule"
             style="@style/DefaultButtonText"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/btnSignIn"
+            android:layout_below="@+id/btnFeed"
             android:background="@drawable/button_default_bg"
-            android:text="@string/signUP" />
+            android:text="@string/schedule" />
+        
+        <Button
+            android:id="@+id/btnConfigure"
+            style="@style/DefaultButtonText"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnSchedule"
+            android:background="@drawable/button_default_bg"
+            android:text="@string/configure" />
     </RelativeLayout>
 
 </RelativeLayout>
