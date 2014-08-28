@@ -84,7 +84,7 @@ public final class MainActivity extends Activity implements GetJSONInterface {
         });
     }
 
-    // Methos to handleClick Event of Sign In Button
+    // Method to handleClick Event of Sign In Button
     public void signIn(final View V) {
         final String username = mTxtLogin.getText().toString();
         final String password = mTxtPassword.getText().toString();

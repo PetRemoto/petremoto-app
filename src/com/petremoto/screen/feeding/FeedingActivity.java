@@ -42,7 +42,8 @@ public final class FeedingActivity extends Activity implements
     }
 
     public void sendPOSTFeedRequest(String serial) {
-        final String params = "&" + APIUtils.putAttrs("serial", serial);
+        final String params = "&" + APIUtils.putAttrs("serial", serial)
+                + "&" + APIUtils.putAttrs("feed", "true");
 
         new PostJSONTask(this).execute(APIUtils.getApiUrlFeeding(), params);
     }

@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.petremoto.R;
+import com.petremoto.screen.dispenders.configure.DispenserConfigureActivity;
 import com.petremoto.screen.dispensers.DispenserActivity;
-import com.petremoto.screen.person.PersonActivity;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -70,13 +70,13 @@ public final class FeedActivity extends Activity {
 
     private void configure(View v) {
         final Intent intent = new Intent(FeedActivity.this,
-                PersonActivity.class);
+                DispenserConfigureActivity.class);
         startActivity(intent);
     }
 
     private void schedule(View v) {
         final Intent intent = new Intent(FeedActivity.this,
-                PersonActivity.class);
+                DispenserConfigureActivity.class);
         startActivity(intent);
     }
 

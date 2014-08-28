@@ -103,11 +103,11 @@
         <activity
             android:name="com.petremoto.screen.dispensers.DispenserActivity"
             android:label="@string/feedActivity"
-            android:parentActivityName="com.petremoto.screen.feed"
+            android:parentActivityName="com.petremoto.screen.feed.FeedActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.petremoto.screen.FeedActivity" />
+                android:value="com.petremoto.screen.feed.FeedActivity" />
         </activity>
         
         <activity
@@ -118,7 +118,17 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.petremoto.screen.dispensers.DispenserActivity" />
-        </activity>        
+        </activity>
+        
+        <activity
+            android:name="com.petremoto.screen.dispenders.configure.DispenserConfigureActivity"
+            android:label="@string/feedingActivity"
+            android:parentActivityName="com.petremoto.screen.dispenders.configure.DispenserConfigureActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.petremoto.screen.feed.FeedActivity" />
+        </activity>   
         
     </application>
 

@@ -1,9 +1,12 @@
 
-package com.petremoto.screen.dispensers;
+package com.petremoto.screen.dispenders.configure;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -11,7 +14,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.petremoto.R;
-import com.petremoto.adapter.DispenserAdapter;
+import com.petremoto.adapter.DispenserConfigureAdapter;
 import com.petremoto.asynctask.GetJSONTask;
 import com.petremoto.asynctask.GetJSONTask.GetJSONInterface;
 import com.petremoto.asynctask.PostJSONTask.PostJSONInterface;
@@ -33,24 +36,31 @@ import org.json.JSONObject;
 /**
  * The Class MainActivity.
  */
-public final class DispenserActivity extends Activity implements
+@SuppressLint("NewApi")
+public final class DispenserConfigureActivity extends Activity implements
         GetJSONInterface,
         PostJSONInterface {
 
     private ArrayList<Dispenser> mListDispenser;
-    private DispenserAdapter mDispenserAdapter;
+    private DispenserConfigureAdapter mDispenserAdapter;
     private ListView mList;
     private ProgressBar mProgress;
+    private static int selectedDispenser = -1;
+    /** The itemselected. */
+    private static boolean dispenserSelected = false;
+
+    /** The Constant PADDING_VALUE. */
+    private static final int PADDING_VALUE = 5;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
+        selectedDispenser = -1;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dispensers);
 
         mListDispenser = new ArrayList<Dispenser>();
-
-        mDispenserAdapter = new DispenserAdapter(this,
-                R.layout.adapter_dispencer,
+        mDispenserAdapter = new DispenserConfigureAdapter(this,
+                R.layout.adapter_dispenser_configure,
                 mListDispenser);
 
         mList = (ListView) findViewById(android.R.id.list);
@@ -62,8 +72,12 @@ public final class DispenserActivity extends Activity implements
             @Override
             public void onItemClick(AdapterView<?> parent, View v,
                     int position, long id) {
-                Dispenser newDispenser = mListDispenser.get(position);
-                feed(v, newDispenser);
+                // Dispenser newDispenser = mListDispenser.get(position);
+                // feed(v, newDispenser);
+
+                dispenserSelected = !dispenserSelected;
+                Log.d("Teste", selectedDispenser + "");
+                invalidateOptionsMenu();
             }
 
         });
@@ -73,7 +87,7 @@ public final class DispenserActivity extends Activity implements
     }
 
     private void feed(View v, Dispenser dispenser) {
-        final Intent intent = new Intent(DispenserActivity.this,
+        final Intent intent = new Intent(DispenserConfigureActivity.this,
                 FeedingActivity.class);
         intent.putExtra("serial", dispenser.getSerial());
         startActivity(intent);
@@ -81,6 +95,7 @@ public final class DispenserActivity extends Activity implements
 
     @Override
     protected void onResume() {
+        selectedDispenser = -1;
         super.onResume();
         requestDispenser();
     }
@@ -88,6 +103,34 @@ public final class DispenserActivity extends Activity implements
     @Override
     protected void onDestroy() {
         super.onDestroy();// Close The DatabaseloginDataBaseAdapter.close();
+    }
+
+    @Override
+    public void onBackPressed() {
+        // code here to show dialog
+        if (selectedDispenser >= 0) {
+            selectedDispenser = -1;
+            invalidateOptionsMenu();
+        } else {
+            super.onBackPressed(); // optional depending on your needs
+        }
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
+     */
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        if (selectedDispenser >= 0) {
+            getMenuInflater().inflate(R.menu.contact, menu);
+        } else {
+            getMenuInflater().inflate(R.menu.config_dispenser, menu);
+            // getMenuInflater().inflate(R.menu.question_edit, menu);
+        }
+        return true;
+
     }
 
     @Override
@@ -169,4 +212,9 @@ public final class DispenserActivity extends Activity implements
             mDispenserAdapter.notifyDataSetChanged();
         }
     }
+
+    public static void setSelectedDispenser(int dispenser) {
+        selectedDispenser = dispenser;
+    }
+
 }
