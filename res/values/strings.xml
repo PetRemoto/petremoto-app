@@ -1,74 +1,32 @@
-
 <resources>
 
     <string name="app_name">Pet Remoto</string>
     <string name="action_add_ti">Adicionar Ti</string>
-    
     <string name="cant_without_connection">Impossivel sem conexão.</string>
     <string name="connection_unavailable">Conexão indisponivel.</string>
-    <style name="DefaultButtonText">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_margin">3dp</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:shadowColor">#f9f9f9</item>
-        <item name="android:shadowDx">1</item>
-        <item name="android:shadowDy">1</item>
-        <item name="android:shadowRadius">1</item>
-    </style>
-    
+
     <!-- String of the feed activity -->
     <string name="configure">Configurar</string>
     <string name="feed">Alimentar</string>
     <string name="schedule">Agendar</string>
-    
+
     <!-- String of the main activity -->
     <string name="password">Senha</string>
     <string name="signIn">Entrar</string>
     <string name="signUP">Registrar</string>
     <string name="userName">Usuário</string>
-    <string name="empty_contacts">You dont have any contact</string>
-    <string name="create">Create Account</string>
-    <string name="go">Go</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="edit">Edit</string>
-    <string name="search">Search</string>
-    <string name="request">Friends Requests</string>
+
     <!-- Activitiesw labels -->
-    <string name="feedActivity">Feed</string>
-    <string name="feedingActivity">Feeding</string>
-    
-
-    <string name="contact_activity">Contacts</string>
-
-	<string name="no_profiles_with_this_username">No profiles with this username.</string>
-    <string name="name">Lorem Ipsum Valves</string> 
-    <string name="changePassword">Change Password</string>
-    <string name="changeName">Change Name</string>
-    <string name="firstName">First Name</string>
-    <string name="lastName">Last Name</string>
-    <string name="ConfirmNameChange">Confirm Change</string>
-    <string name="myNumbers">My Numbers</string>
-    <string name="editYoursContacts">Edit yours Contacts</string>
-    <string name="profile">Profile</string>
-    <string name="saveChange">Save Changes</string>
-    <string name="search_username">Search for username</string>
-    <string name="remove_friend">Remove this friend</string>
-    <string name="add_friend">Add this friend</string>
-    <string name="remove">Remove</string>
-    <string name="add">Add</string>
-    <string name="cancel">Cancel</string>
-    <string name="empty_request">You dont have any request</string>
-    <string name="accept_friend">Accept Friend Request</string>
-    <string name="accept">Accept</string>
-    <string name="ignore">Ignore</string>
-    <string name="contact">Contact</string>
+    <string name="feedActivity">Alimentar</string>
+    <string name="feedingActivity">Alimentando</string>
     
     
-
+    <string name="add">Adicionar</string>
+    <string name="search">Pesquisar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="empty_dispenser">Você não tem nenhum Dispenser.</string>
 
 </resources>

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.petremoto.R;
 import com.petremoto.model.Dispenser;
-import com.petremoto.utils.ThinerUtils;
+import com.petremoto.utils.PetRemotoUtils;
 
 import java.util.ArrayList;
 
@@ -69,7 +69,7 @@ public class DispenserAdapter extends ArrayAdapter<Dispenser> {
         holder.textViewDispenserName.setText(dispenser.getName());
 
         holder.textViewLastTimeFed.setText(new DateTime(dispenser
-                .getLastTimeFed()).toString(ThinerUtils.getDateTimeFormat()));
+                .getLastTimeFed()).toString(PetRemotoUtils.getDateTimeFormat()));
 
         return row;
 

@@ -3,8 +3,8 @@ package com.petremoto.utils;
 
 public class APIUtils {
 
-    private static final String URL = "http://petremoto.herokuapp.com/api/user";
-    // private static final String URL = "http://192.168.1.244:50001/api/user";
+    //    private static final String URL = "http://petremoto.herokuapp.com/api/user";
+    private static final String URL = "http://192.168.1.244:50001/api/user";
 
     private static final String URL_LOGIN = "/login";
 

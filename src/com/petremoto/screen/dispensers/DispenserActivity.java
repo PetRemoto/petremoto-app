@@ -20,7 +20,7 @@ import com.petremoto.screen.feeding.FeedingActivity;
 import com.petremoto.utils.APIUtils;
 import com.petremoto.utils.AuthPreferences;
 import com.petremoto.utils.MyLog;
-import com.petremoto.utils.ThinerUtils;
+import com.petremoto.utils.PetRemotoUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -148,10 +148,10 @@ public final class DispenserActivity extends Activity implements
         try {
             if (json.has("status")
                     && json.getString("status").equals("success")) {
-                ThinerUtils.showToast(this, json.getString("msg"));
+                PetRemotoUtils.showToast(this, json.getString("msg"));
                 requestDispenser();
             } else {
-                ThinerUtils.showToast(this, json.getString("err"));
+                PetRemotoUtils.showToast(this, json.getString("err"));
             }
         } catch (final JSONException e) {
             e.printStackTrace();

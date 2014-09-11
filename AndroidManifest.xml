@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.petremoto.screen.main.MainActivity"
+            android:name="com.petremoto.screen.login.LoginActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -27,89 +27,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.petremoto.screen.person.PersonActivity"
-            android:label="@string/contact_activity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.petremoto.screen.request.RequestActivity"
-            android:label="@string/request"
-            android:parentActivityName="com.petremoto.screen.person.PersonActivity"
-            android:screenOrientation="portrait" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.petremoto.screen.person.PersonActivity" />
-        </activity>
-        <activity
-            android:name="com.petremoto.screen.signin.SignInActivity"
-            android:label="@string/app_name"
-            android:parentActivityName="com.petremoto.screen.main.MainActivity"
-            android:screenOrientation="portrait" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.petremoto.screen.main.MainActivity" />
-        </activity>
-        <activity
-            android:name="com.petremoto.screen.signup.SignUpActivity"
-            android:label="@string/app_name"
-            android:parentActivityName="com.petremoto.screen.main.MainActivity"
-            android:screenOrientation="portrait" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.petremoto.screen.main.MainActivity" />
-        </activity>
-        <activity
-            android:name="com.petremoto.screen.search.SearchActivity"
-            android:label="@string/search"
-            android:parentActivityName="com.petremoto.screen.person.PersonActivity"
-            android:screenOrientation="portrait" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.petremoto.screen.person.PersonActivity" />
-        </activity>
-        <activity
-            android:name="com.petremoto.screen.profile.ProfileActivity"
-            android:label="@string/profile"
-            android:parentActivityName="com.petremoto.screen.person.PersonActivity"
-            android:screenOrientation="portrait" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.petremoto.screen.person.PersonActivity" />
-        </activity>
-        <activity
-            android:name="com.petremoto.screen.contact.ContactActivity"
-            android:label="@string/contact"
-            android:parentActivityName="com.petremoto.screen.profile.ProfileActivity"
-            android:screenOrientation="portrait" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.petremoto.screen.profile.ProfileActivity" />
-        </activity>
-        <activity
-            android:name="com.petremoto.screen.friend.FriendActivity"
-            android:parentActivityName="com.petremoto.screen.person.PersonActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.petremoto.screen.feed.FeedActivity"
+            android:name="com.petremoto.screen.main.MainActivity"
             android:label="@string/feedActivity"
-            android:parentActivityName="com.petremoto.screen.main"
+            android:parentActivityName="com.petremoto.screen.login.LoginActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.petremoto.screen.main" />
         </activity>
-        
+        <activity
+            android:name="com.petremoto.screen.signup.SignUpActivity"
+            android:label="@string/app_name"
+            android:parentActivityName="com.petremoto.screen.login.LoginActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.petremoto.screen.main.MainActivity" />
+        </activity>
         <activity
             android:name="com.petremoto.screen.dispensers.DispenserActivity"
             android:label="@string/feedActivity"
-            android:parentActivityName="com.petremoto.screen.feed.FeedActivity"
+            android:parentActivityName="com.petremoto.screen.main.MainActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.petremoto.screen.feed.FeedActivity" />
         </activity>
-        
         <activity
             android:name="com.petremoto.screen.feeding.FeedingActivity"
             android:label="@string/feedingActivity"
@@ -119,17 +62,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.petremoto.screen.dispensers.DispenserActivity" />
         </activity>
-        
         <activity
             android:name="com.petremoto.screen.dispenders.configure.DispenserConfigureActivity"
             android:label="@string/feedingActivity"
-            android:parentActivityName="com.petremoto.screen.dispenders.configure.DispenserConfigureActivity"
+            android:parentActivityName="com.petremoto.screen.main.MainActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.petremoto.screen.feed.FeedActivity" />
-        </activity>   
-        
+        </activity>
     </application>
 
 </manifest>

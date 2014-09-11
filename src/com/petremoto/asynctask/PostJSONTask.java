@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import com.petremoto.utils.MyLog;
-import com.petremoto.utils.ThinerUtils;
+import com.petremoto.utils.PetRemotoUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,7 +32,7 @@ public class PostJSONTask extends AsyncTask<String, Void, String> {
 
                 MyLog.info("POST: " + paramns[0] + " - " + paramns[1]);
 
-                result = ThinerUtils.sendPOST(paramns[0], paramns[1]);
+                result = PetRemotoUtils.sendPOST(paramns[0], paramns[1]);
 
                 if (result != null) {
                     break;
@@ -40,7 +40,7 @@ public class PostJSONTask extends AsyncTask<String, Void, String> {
 
             } catch (final IOException e) {
                 MyLog.debug("Unable to retrieve web page. URL may be invalid: "
-                        + ThinerUtils.getServerURL() + " - " + paramns[0]);
+                        + PetRemotoUtils.getServerURL() + " - " + paramns[0]);
             }
 
             try {

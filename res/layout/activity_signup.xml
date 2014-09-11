@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+    xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#79CDCD"
     android:gravity="center_vertical"
-    android:orientation="vertical"
-    android:background="#79CDCD" >
+    android:orientation="vertical" >
 
     <EditText
         android:id="@+id/editTextUserName"
@@ -13,13 +16,13 @@
         android:layout_margin="4dp"
         android:layout_marginTop="-2dp"
         android:background="@drawable/edittext_default_bg"
-        android:singleLine="true"
         android:drawableLeft="@drawable/user"
         android:hint="User Name"
         android:padding="10dp"
-        android:textColorHint="#bbbbbb"/>
+        android:singleLine="true"
+        android:textColorHint="#bbbbbb" />
 
-        <requestFocus />
+    <requestFocus />
 
     <EditText
         android:id="@+id/etFirstName"
@@ -27,11 +30,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:layout_marginTop="-2dp"
-        android:singleLine="true"
         android:background="@drawable/edittext_default_bg"
         android:drawableLeft="@drawable/user"
         android:hint="First Name"
         android:padding="10dp"
+        android:singleLine="true"
         android:textColorHint="#bbbbbb" />
 
     <EditText
@@ -40,11 +43,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:layout_marginTop="-2dp"
-        android:singleLine="true"
         android:background="@drawable/edittext_default_bg"
         android:drawableLeft="@drawable/user"
         android:hint="Last Name"
         android:padding="10dp"
+        android:singleLine="true"
         android:textColorHint="#bbbbbb" />
 
     <EditText
@@ -53,11 +56,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:layout_marginTop="-2dp"
-        android:singleLine="true"
         android:background="@drawable/edittext_default_bg"
         android:drawableLeft="@drawable/email"
         android:hint="Email"
         android:padding="10dp"
+        android:singleLine="true"
         android:textColorHint="#bbbbbb" />
 
     <EditText
@@ -66,12 +69,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:layout_marginTop="-2dp"
-        android:singleLine="true"
         android:background="@drawable/edittext_default_bg"
         android:drawableLeft="@drawable/password"
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="10dp"
+        android:singleLine="true"
         android:textColorHint="#bbbbbb" />
 
     <EditText
@@ -80,17 +83,16 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:layout_marginTop="-2dp"
-        android:singleLine="true"
         android:background="@drawable/edittext_default_bg"
         android:drawableLeft="@drawable/password"
         android:hint="Confirm Password"
         android:inputType="textPassword"
         android:padding="10dp"
+        android:singleLine="true"
         android:textColorHint="#bbbbbb" />
 
     <Button
         android:id="@+id/buttonCreateAccount"
-        style="@style/DefaultButtonText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"

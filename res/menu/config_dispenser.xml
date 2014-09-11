@@ -5,5 +5,5 @@
         android:icon="@android:drawable/ic_menu_add"
         android:orderInCategory="3"
         android:showAsAction="always"
-        android:title="@string/profile"/>
+        android:title="@string/add"/>
 </menu>

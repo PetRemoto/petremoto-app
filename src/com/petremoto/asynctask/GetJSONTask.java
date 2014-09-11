@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import com.petremoto.utils.MyLog;
-import com.petremoto.utils.ThinerUtils;
+import com.petremoto.utils.PetRemotoUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,7 +29,7 @@ public class GetJSONTask extends AsyncTask<String, Void, String> {
 
             MyLog.info("GET: " + urls[0]);
 
-            result = ThinerUtils.downloadUrl(urls[0]);
+            result = PetRemotoUtils.downloadUrl(urls[0]);
 
             if (result == null) {
 
@@ -58,6 +58,8 @@ public class GetJSONTask extends AsyncTask<String, Void, String> {
             } else {
                 mainObject = new JSONObject("{'status': 'failed'}");
             }
+
+            MyLog.debug(mainObject.toString());
             ((GetJSONInterface) mContext).callbackGetJSON(mainObject);
 
         } catch (final JSONException e) {
@@ -68,6 +70,6 @@ public class GetJSONTask extends AsyncTask<String, Void, String> {
     }
 
     public interface GetJSONInterface {
-        public void callbackGetJSON(JSONObject json);
+        public void callbackGetJSON(final JSONObject json);
     }
 }

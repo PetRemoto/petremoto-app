@@ -13,7 +13,7 @@ import com.petremoto.R;
 import com.petremoto.asynctask.PostJSONTask;
 import com.petremoto.asynctask.PostJSONTask.PostJSONInterface;
 import com.petremoto.utils.APIUtils;
-import com.petremoto.utils.ThinerUtils;
+import com.petremoto.utils.PetRemotoUtils;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -60,9 +60,9 @@ public final class FeedingActivity extends Activity implements
         try {
             if (status.has("status")
                     && status.getString("status").equalsIgnoreCase("failed")) {
-                ThinerUtils.showToast(this, status.getString("err"));
+                PetRemotoUtils.showToast(this, status.getString("err"));
             } else {
-                ThinerUtils.showToast(this, status.getString("msg"));
+                PetRemotoUtils.showToast(this, status.getString("msg"));
                 textViewFeeding.setText("Alimentado!");
             }
         } catch (final JSONException e) {

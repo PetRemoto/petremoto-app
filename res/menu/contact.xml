@@ -11,5 +11,5 @@
         android:icon="@android:drawable/ic_menu_edit"
         android:orderInCategory="2"
         android:showAsAction="always"
-        android:title="@string/profile"/>
+        android:title="@string/edit"/>
 </menu>

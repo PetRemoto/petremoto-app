@@ -14,7 +14,7 @@ import com.petremoto.R;
 import com.petremoto.asynctask.PostJSONTask;
 import com.petremoto.asynctask.PostJSONTask.PostJSONInterface;
 import com.petremoto.utils.APIUtils;
-import com.petremoto.utils.ThinerUtils;
+import com.petremoto.utils.PetRemotoUtils;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -75,19 +75,19 @@ public class SignUpActivity extends Activity implements PostJSONInterface {
         String params = "";
 
         if (Strings.isNullOrEmpty(username)) {
-            ThinerUtils.showToast(this, "Username bar empty. :(");
+            PetRemotoUtils.showToast(this, "Username bar empty. :(");
         } else if (Strings.isNullOrEmpty(firstname)) {
-            ThinerUtils.showToast(this, "First Name bar empty. :(");
+            PetRemotoUtils.showToast(this, "First Name bar empty. :(");
         } else if (Strings.isNullOrEmpty(lastname)) {
-            ThinerUtils.showToast(this, "Last Name bar empty. :(");
+            PetRemotoUtils.showToast(this, "Last Name bar empty. :(");
         } else if (Strings.isNullOrEmpty(email)) {
-            ThinerUtils.showToast(this, "Email bar empty. :(");
+            PetRemotoUtils.showToast(this, "Email bar empty. :(");
         } else if (Strings.isNullOrEmpty(password)) {
-            ThinerUtils.showToast(this, "Password bar empty. :(");
+            PetRemotoUtils.showToast(this, "Password bar empty. :(");
         } else if (Strings.isNullOrEmpty(confPassword)) {
-            ThinerUtils.showToast(this, "Confirm Password bar empty. :(");
+            PetRemotoUtils.showToast(this, "Confirm Password bar empty. :(");
         } else if (!confPassword.equals(password)) {
-            ThinerUtils.showToast(this,
+            PetRemotoUtils.showToast(this,
                     "Confirm Password and Password are different. :(");
         } else {
             params += "&" + APIUtils.putAttrs("username", username);
@@ -116,9 +116,9 @@ public class SignUpActivity extends Activity implements PostJSONInterface {
         try {
             if (status.has("status")
                     && status.getString("status").equalsIgnoreCase("failed")) {
-                ThinerUtils.showToast(this, status.getString("err"));
+                PetRemotoUtils.showToast(this, status.getString("err"));
             } else {
-                ThinerUtils.showToast(this, status.getString("msg"));
+                PetRemotoUtils.showToast(this, status.getString("msg"));
 
             }
         } catch (final JSONException e) {
