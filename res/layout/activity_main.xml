@@ -1,17 +1,16 @@
-<!-- OK -->
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
     xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#79CDCD"
     android:gravity="center"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    android:background="#79CDCD" >
 
     <RelativeLayout
         android:id="@+id/layout_top"
@@ -19,13 +18,14 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:padding="8dp" >
-
+        
         <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_launcher" />
+        android:id="@+id/imageView1"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_launcher" />
+        
     </RelativeLayout>
 
     <RelativeLayout
@@ -35,32 +35,6 @@
         android:layout_below="@+id/layout_top"
         android:layout_centerHorizontal="true"
         android:padding="10dp" >
-
-        <EditText
-            android:id="@+id/editTextLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/user"
-            android:ems="10"
-            android:hint="@string/userName"
-            android:shadowColor="#AAAAAA"
-            android:singleLine="true"
-            android:textColorHint="#AAAAAA" >
-        </EditText>
-
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editTextLogin"
-            android:drawableLeft="@drawable/password"
-            android:ems="10"
-            android:hint="@string/password"
-            android:inputType="textWebPassword"
-            android:shadowColor="#AAAAAA"
-            android:singleLine="true"
-            android:textColorHint="#AAAAAA" >
-        </EditText>
     </RelativeLayout>
 
     <RelativeLayout
@@ -72,27 +46,29 @@
         android:padding="10dp" >
 
         <Button
-            android:id="@+id/btnSignIn"
+            android:id="@+id/btnFeed"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:background="@drawable/button_default_bg"
-            android:text="@string/signIn" />
+            android:text="@string/feed" />
 
         <Button
-            android:id="@+id/btnSignUp"
+            android:id="@+id/btnSchedule"
+            android:layout_width="120dp"
+            android:enabled="false"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnFeed"
+            android:background="@drawable/button_default_bg"
+            android:text="@string/schedule" />
+        
+        <Button
+            android:id="@+id/btnConfigure"
+            android:enabled="true"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/btnSignIn"
+            android:layout_below="@+id/btnSchedule"
             android:background="@drawable/button_default_bg"
-            android:text="@string/signUP" />
-
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Success"
-            bootstrapbutton:bb_icon_right="fa-android"
-            bootstrapbutton:bb_type="success" />
+            android:text="@string/configure" />
     </RelativeLayout>
 
 </RelativeLayout>
