@@ -2,13 +2,14 @@
 package com.petremoto.screen.dispensers;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
 import com.petremoto.R;
 import com.petremoto.adapter.DispenserAdapter;
@@ -22,30 +23,33 @@ import com.petremoto.utils.AuthPreferences;
 import com.petremoto.utils.MyLog;
 import com.petremoto.utils.PetRemotoUtils;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * The Class MainActivity.
  */
 public final class DispenserActivity extends Activity implements
-        GetJSONInterface,
-        PostJSONInterface {
+GetJSONInterface,
+PostJSONInterface {
 
     private ArrayList<Dispenser> mListDispenser;
     private DispenserAdapter mDispenserAdapter;
     private ListView mList;
-    private ProgressBar mProgress;
+    private ProgressDialog mDialog;
+    private RelativeLayout mLayout;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dispensers);
+
+        mLayout = (RelativeLayout) findViewById(R.id.layout_top);
 
         mListDispenser = new ArrayList<Dispenser>();
 
@@ -60,19 +64,17 @@ public final class DispenserActivity extends Activity implements
 
         mList.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View v,
-                    int position, long id) {
-                Dispenser newDispenser = mListDispenser.get(position);
+            public void onItemClick(final AdapterView<?> parent, final View v,
+                    final int position, final long id) {
+                final Dispenser newDispenser = mListDispenser.get(position);
                 feed(v, newDispenser);
             }
 
         });
 
-        mProgress = (ProgressBar) findViewById(R.id.progressBar);
-
     }
 
-    private void feed(View v, Dispenser dispenser) {
+    private void feed(final View v, final Dispenser dispenser) {
         final Intent intent = new Intent(DispenserActivity.this,
                 FeedingActivity.class);
         intent.putExtra("serial", dispenser.getSerial());
@@ -102,8 +104,6 @@ public final class DispenserActivity extends Activity implements
                             "dispensers");
 
             for (int i = 0; i < dispensers.length(); i++) {
-                // MyLog.info(friends.getJSONObject(i).toString());
-
                 final JSONObject dispenser = dispensers.getJSONObject(i);
 
                 final String serial = dispenser.getString("serial");
@@ -127,13 +127,18 @@ public final class DispenserActivity extends Activity implements
             e.printStackTrace();
         }
 
-        mProgress.setVisibility(View.GONE);
-        mList.setVisibility(View.VISIBLE);
+        mDialog.dismiss();
+        mLayout.setVisibility(View.VISIBLE);
     }
 
     public void requestDispenser() {
-        mList.setVisibility(View.GONE);
-        mProgress.setVisibility(View.VISIBLE);
+        mLayout.setVisibility(View.INVISIBLE);
+
+        mDialog = new ProgressDialog(this);
+        mDialog.setTitle(R.string.request_dispensers);
+        mDialog.setMessage(getResources().getString(R.string.please_wait));
+        mDialog.setCancelable(false);
+        mDialog.show();
 
         final String url = APIUtils.getApiUrl() + "?"
                 + APIUtils.putAttrs("id", AuthPreferences.getID(this));

@@ -23,10 +23,15 @@
     <string name="feedActivity">Alimentar</string>
     <string name="feedingActivity">Alimentando</string>
     
-    
+    <!-- Others labels -->
     <string name="add">Adicionar</string>
     <string name="search">Pesquisar</string>
     <string name="cancel">Cancelar</string>
     <string name="empty_dispenser">Você não tem nenhum Dispenser.</string>
+    <string name="please_wait">Por favor, espere um pouco...</string>
+    
+    <!-- Dialog labels -->
+    <string name="request_dispensers">Carregando dispensers</string>
+    
 
 </resources>

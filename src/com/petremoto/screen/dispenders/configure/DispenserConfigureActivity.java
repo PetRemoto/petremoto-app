@@ -3,7 +3,7 @@ package com.petremoto.screen.dispenders.configure;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
 import com.petremoto.R;
 import com.petremoto.adapter.DispenserConfigureAdapter;
@@ -19,44 +19,43 @@ import com.petremoto.asynctask.GetJSONTask;
 import com.petremoto.asynctask.GetJSONTask.GetJSONInterface;
 import com.petremoto.asynctask.PostJSONTask.PostJSONInterface;
 import com.petremoto.model.Dispenser;
-import com.petremoto.screen.feeding.FeedingActivity;
 import com.petremoto.utils.APIUtils;
 import com.petremoto.utils.AuthPreferences;
 import com.petremoto.utils.MyLog;
 import com.petremoto.utils.PetRemotoUtils;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * The Class MainActivity.
  */
 @SuppressLint("NewApi")
 public final class DispenserConfigureActivity extends Activity implements
-        GetJSONInterface,
-        PostJSONInterface {
+GetJSONInterface,
+PostJSONInterface {
 
     private ArrayList<Dispenser> mListDispenser;
     private DispenserConfigureAdapter mDispenserAdapter;
     private ListView mList;
-    private ProgressBar mProgress;
+    private ProgressDialog mDialog;
+    private RelativeLayout mLayout;
     private static int selectedDispenser = -1;
     /** The itemselected. */
     private static boolean dispenserSelected = false;
-
-    /** The Constant PADDING_VALUE. */
-    private static final int PADDING_VALUE = 5;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         selectedDispenser = -1;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dispensers);
+
+        mLayout = (RelativeLayout) findViewById(R.id.layout_top);
 
         mListDispenser = new ArrayList<Dispenser>();
         mDispenserAdapter = new DispenserConfigureAdapter(this,
@@ -70,8 +69,8 @@ public final class DispenserConfigureActivity extends Activity implements
 
         mList.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View v,
-                    int position, long id) {
+            public void onItemClick(final AdapterView<?> parent, final View v,
+                    final int position, final long id) {
                 // Dispenser newDispenser = mListDispenser.get(position);
                 // feed(v, newDispenser);
 
@@ -82,16 +81,14 @@ public final class DispenserConfigureActivity extends Activity implements
 
         });
 
-        mProgress = (ProgressBar) findViewById(R.id.progressBar);
-
     }
 
-    private void feed(View v, Dispenser dispenser) {
-        final Intent intent = new Intent(DispenserConfigureActivity.this,
-                FeedingActivity.class);
-        intent.putExtra("serial", dispenser.getSerial());
-        startActivity(intent);
-    }
+    //    private void feed(final View v, final Dispenser dispenser) {
+    //        final Intent intent = new Intent(DispenserConfigureActivity.this,
+    //                FeedingActivity.class);
+    //        intent.putExtra("serial", dispenser.getSerial());
+    //        startActivity(intent);
+    //    }
 
     @Override
     protected void onResume() {
@@ -170,13 +167,18 @@ public final class DispenserConfigureActivity extends Activity implements
             e.printStackTrace();
         }
 
-        mProgress.setVisibility(View.GONE);
-        mList.setVisibility(View.VISIBLE);
+        mDialog.dismiss();
+        mLayout.setVisibility(View.VISIBLE);
     }
 
     public void requestDispenser() {
-        mList.setVisibility(View.GONE);
-        mProgress.setVisibility(View.VISIBLE);
+        mLayout.setVisibility(View.INVISIBLE);
+
+        mDialog = new ProgressDialog(this);
+        mDialog.setTitle(R.string.request_dispensers);
+        mDialog.setMessage(getResources().getString(R.string.please_wait));
+        mDialog.setCancelable(false);
+        mDialog.show();
 
         final String url = APIUtils.getApiUrl() + "?"
                 + APIUtils.putAttrs("id", AuthPreferences.getID(this));
@@ -213,7 +215,7 @@ public final class DispenserConfigureActivity extends Activity implements
         }
     }
 
-    public static void setSelectedDispenser(int dispenser) {
+    public static void setSelectedDispenser(final int dispenser) {
         selectedDispenser = dispenser;
     }
 
