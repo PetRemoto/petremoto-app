@@ -66,6 +66,11 @@ public class DispenserAdapter extends ArrayAdapter<Dispenser> {
                 holder.imgViewStatus = (CircleImageView) view;
             }
 
+            view = row.findViewById(R.id.textViewDispenserStatus);
+            if (view instanceof TextView) {
+                holder.textViewDispenserStatus = (TextView) view;
+            }
+
             row.setTag(holder);
         } else {
             holder = (DispenserHolder) row.getTag();
@@ -80,16 +85,22 @@ public class DispenserAdapter extends ArrayAdapter<Dispenser> {
 
         if ("NORMAL".equalsIgnoreCase(dispenser.getStatus())) {
             holder.imgViewStatus.setImageResource(R.drawable.green);
+            holder.textViewDispenserStatus.setText("Normal");
         } else if ("EMPTY".equalsIgnoreCase(dispenser.getStatus())) {
             holder.imgViewStatus.setImageResource(R.drawable.orange);
+            holder.textViewDispenserStatus.setText("Vazio");
         } else if ("OFFLINE".equalsIgnoreCase(dispenser.getStatus())) {
             holder.imgViewStatus.setImageResource(R.drawable.grey);
+            holder.textViewDispenserStatus.setText("Offline");
         } else if ("ALMOST_EMPTY".equalsIgnoreCase(dispenser.getStatus())) {
             holder.imgViewStatus.setImageResource(R.drawable.yellow);
+            holder.textViewDispenserStatus.setText("Quase Vazio");
         } else if ("BLOCKED".equalsIgnoreCase(dispenser.getStatus())) {
             holder.imgViewStatus.setImageResource(R.drawable.red);
+            holder.textViewDispenserStatus.setText("Bloqueado");
         } else {
             holder.imgViewStatus.setImageResource(R.drawable.grey);
+            holder.textViewDispenserStatus.setText("Offline");
         }
 
         return row;
@@ -103,5 +114,6 @@ public class DispenserAdapter extends ArrayAdapter<Dispenser> {
         TextView textViewDispenserName;
         TextView textViewLastTimeFed;
         CircleImageView imgViewStatus;
+        TextView textViewDispenserStatus;
     }
 }
