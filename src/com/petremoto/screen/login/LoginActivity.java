@@ -2,13 +2,14 @@
 
 package com.petremoto.screen.login;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
-import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.petremoto.R;
@@ -34,8 +35,8 @@ public final class LoginActivity extends Activity implements GetJSONInterface {
     private EditText mTxtLogin;
     private EditText mTxtPassword;
 
-    private BootstrapButton mBtnSignIn;
-    private BootstrapButton mBtnSignUp;
+    private Button mBtnSignIn;
+    private Button mBtnSignUp;
 
     private int mLoginFailCount;
 
@@ -46,6 +47,9 @@ public final class LoginActivity extends Activity implements GetJSONInterface {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        final ActionBar actionBar = getActionBar();
+        actionBar.hide();
+
         // Start Login Count
         mLoginFailCount = 0;
 
@@ -54,8 +58,8 @@ public final class LoginActivity extends Activity implements GetJSONInterface {
         mTxtPassword = (EditText) findViewById(R.id.editTextPassword);
 
         // Get The Refference Of Buttons
-        mBtnSignIn = (BootstrapButton) findViewById(R.id.btnSignIn);
-        mBtnSignUp = (BootstrapButton) findViewById(R.id.btnSignUp);
+        mBtnSignIn = (Button) findViewById(R.id.btnSignIn);
+        mBtnSignUp = (Button) findViewById(R.id.btnSignUp);
 
         mViews = new LinkedList<View>();
         mViews.add(mTxtLogin);

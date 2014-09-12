@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
-    xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFF00"
+    android:background="#F9E814"
     android:gravity="center" >
 
     <RelativeLayout
@@ -40,36 +38,36 @@
         android:layout_centerHorizontal="true"
         android:padding="10dp" >
 
-        <com.beardedhen.androidbootstrap.BootstrapButton
+        <Button
             android:id="@+id/btnFeed"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="@string/feed"
-            bootstrapbutton:bb_roundedCorners="true"
-            bootstrapbutton:bb_type="default" />
+            android:background="@drawable/roundedshapebtn"
+            android:text="@string/feed" />
 
-        <com.beardedhen.androidbootstrap.BootstrapButton
+        <Button
             android:id="@+id/btnSchedule"
-            android:layout_width="wrap_content"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btnFeed"
-            android:visibility="gone"
             android:layout_marginTop="8dp"
+            android:background="@drawable/roundedshapebtn"
             android:enabled="false"
             android:text="@string/schedule"
-            bootstrapbutton:bb_roundedCorners="true"
-            bootstrapbutton:bb_type="default" />
-
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/btnConfigure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btnSchedule"
-            android:layout_marginTop="8dp"
-            android:text="@string/configure"
-            bootstrapbutton:bb_roundedCorners="true"
-            bootstrapbutton:bb_type="default" />
+            android:visibility="gone" />
         
+        <Button
+            android:id="@+id/btnConfigure"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="120dp"
+            android:layout_below="@+id/btnSchedule"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/roundedshapebtn"
+            android:text="@string/configure" />
+
     </RelativeLayout>
 
 </RelativeLayout>

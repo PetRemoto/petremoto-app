@@ -6,8 +6,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
-import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.petremoto.R;
 import com.petremoto.screen.dispenders.configure.DispenserConfigureActivity;
 import com.petremoto.screen.dispensers.DispenserActivity;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public final class MainActivity extends Activity {
 
-    private BootstrapButton mBtnConfigure, mBtnFeed, mBtnSchedule;
+    private Button mBtnConfigure, mBtnFeed, mBtnSchedule;
 
     private List<View> mViews;
 
@@ -27,9 +27,9 @@ public final class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         // Get The Refference Of Buttons
-        mBtnFeed = (BootstrapButton) findViewById(R.id.btnFeed);
-        mBtnSchedule = (BootstrapButton) findViewById(R.id.btnSchedule);
-        mBtnConfigure = (BootstrapButton) findViewById(R.id.btnConfigure);
+        mBtnFeed = (Button) findViewById(R.id.btnFeed);
+        mBtnSchedule = (Button) findViewById(R.id.btnSchedule);
+        mBtnConfigure = (Button) findViewById(R.id.btnConfigure);
 
         mViews = new LinkedList<View>();
         mViews.add(mBtnFeed);
