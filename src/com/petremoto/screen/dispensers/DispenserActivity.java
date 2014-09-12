@@ -2,7 +2,9 @@
 package com.petremoto.screen.dispensers;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -35,8 +37,8 @@ import java.util.List;
  * The Class MainActivity.
  */
 public final class DispenserActivity extends Activity implements
-GetJSONInterface,
-PostJSONInterface {
+        GetJSONInterface,
+        PostJSONInterface {
 
     private ArrayList<Dispenser> mListDispenser;
     private DispenserAdapter mDispenserAdapter;
@@ -66,8 +68,34 @@ PostJSONInterface {
             @Override
             public void onItemClick(final AdapterView<?> parent, final View v,
                     final int position, final long id) {
-                final Dispenser newDispenser = mListDispenser.get(position);
-                feed(v, newDispenser);
+
+                // Use the Builder class for convenient dialog construction
+                final AlertDialog.Builder builder = new AlertDialog.Builder(
+                        DispenserActivity.this);
+
+                builder.setTitle(R.string.feed_dispenser)
+                        .setPositiveButton(R.string.continuar,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(
+                                            final DialogInterface dialog,
+                                            final int id) {
+                                        final Dispenser newDispenser = mListDispenser.get(position);
+                                        feed(v, newDispenser);
+                                    }
+                                })
+                        .setNegativeButton(R.string.cancel,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(
+                                            final DialogInterface dialog,
+                                            final int id) {
+                                        // User cancelled the dialog
+                                    }
+                                });
+                // Create the AlertDialog object and return it
+                builder.create().show();
+
             }
 
         });

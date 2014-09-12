@@ -32,6 +32,10 @@ public class Dispenser implements Comparable<Dispenser> {
         return mLastTimeFed;
     }
 
+    public String getStatus() {
+        return mStatus;
+    }
+
     @Override
     public int compareTo(final Dispenser another) {
         return getSerial().compareTo(another.getSerial());

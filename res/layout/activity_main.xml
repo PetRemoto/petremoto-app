@@ -18,7 +18,7 @@
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/ic_logo" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -34,9 +34,9 @@
         android:id="@+id/layout_bot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
         android:layout_below="@+id/layout_mid"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
         android:padding="10dp" >
 
         <Button
@@ -45,7 +45,8 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:background="@drawable/roundedshapebtn"
-            android:text="@string/feed" />
+            android:text="@string/feed"
+            android:textColor="#F9E814" />
 
         <Button
             android:id="@+id/btnSchedule"
@@ -57,18 +58,19 @@
             android:background="@drawable/roundedshapebtn"
             android:enabled="false"
             android:text="@string/schedule"
+            android:textColor="#F9E814"
             android:visibility="gone" />
-        
+
         <Button
             android:id="@+id/btnConfigure"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="120dp"
-            android:layout_below="@+id/btnSchedule"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/btnSchedule"
             android:layout_marginTop="8dp"
             android:background="@drawable/roundedshapebtn"
-            android:text="@string/configure" />
-
+            android:text="@string/configure"
+            android:textColor="#F9E814" />
     </RelativeLayout>
 
 </RelativeLayout>

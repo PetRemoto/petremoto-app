@@ -29,9 +29,10 @@
     <string name="cancel">Cancelar</string>
     <string name="empty_dispenser">Você não tem nenhum Dispenser.</string>
     <string name="please_wait">Por favor, espere um pouco...</string>
+    <string name="continuar">Continuar</string>
     
     <!-- Dialog labels -->
     <string name="request_dispensers">Carregando dispensers</string>
-    
+    <string name="feed_dispenser">Deseja despejar alimento?</string>
 
 </resources>

@@ -7,15 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.petremoto.R;
 import com.petremoto.model.Dispenser;
+import com.petremoto.utils.CircleImageView;
 import com.petremoto.utils.PetRemotoUtils;
 
-import java.util.ArrayList;
-
 import org.joda.time.DateTime;
+
+import java.util.ArrayList;
 
 public class DispenserAdapter extends ArrayAdapter<Dispenser> {
 
@@ -59,6 +61,11 @@ public class DispenserAdapter extends ArrayAdapter<Dispenser> {
                 holder.textViewLastTimeFed = (TextView) view;
             }
 
+            view = row.findViewById(R.id.imageViewDispenserStatus);
+            if (view instanceof ImageView) {
+                holder.imgViewStatus = (CircleImageView) view;
+            }
+
             row.setTag(holder);
         } else {
             holder = (DispenserHolder) row.getTag();
@@ -71,6 +78,20 @@ public class DispenserAdapter extends ArrayAdapter<Dispenser> {
         holder.textViewLastTimeFed.setText(new DateTime(dispenser
                 .getLastTimeFed()).toString(PetRemotoUtils.getDateTimeFormat()));
 
+        if ("NORMAL".equalsIgnoreCase(dispenser.getStatus())) {
+            holder.imgViewStatus.setImageResource(R.drawable.green);
+        } else if ("EMPTY".equalsIgnoreCase(dispenser.getStatus())) {
+            holder.imgViewStatus.setImageResource(R.drawable.orange);
+        } else if ("OFFLINE".equalsIgnoreCase(dispenser.getStatus())) {
+            holder.imgViewStatus.setImageResource(R.drawable.grey);
+        } else if ("ALMOST_EMPTY".equalsIgnoreCase(dispenser.getStatus())) {
+            holder.imgViewStatus.setImageResource(R.drawable.yellow);
+        } else if ("BLOCKED".equalsIgnoreCase(dispenser.getStatus())) {
+            holder.imgViewStatus.setImageResource(R.drawable.red);
+        } else {
+            holder.imgViewStatus.setImageResource(R.drawable.grey);
+        }
+
         return row;
 
     }
@@ -81,5 +102,6 @@ public class DispenserAdapter extends ArrayAdapter<Dispenser> {
     static class DispenserHolder {
         TextView textViewDispenserName;
         TextView textViewLastTimeFed;
+        CircleImageView imgViewStatus;
     }
 }

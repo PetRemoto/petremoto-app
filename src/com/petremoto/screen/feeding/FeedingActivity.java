@@ -13,16 +13,15 @@ import com.petremoto.R;
 import com.petremoto.asynctask.PostJSONTask;
 import com.petremoto.asynctask.PostJSONTask.PostJSONInterface;
 import com.petremoto.utils.APIUtils;
-import com.petremoto.utils.PetRemotoUtils;
-
-import java.util.LinkedList;
-import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public final class FeedingActivity extends Activity implements
-        PostJSONInterface {
+PostJSONInterface {
     private TextView textViewFeeding;
     private List<View> mViews;
 
@@ -31,8 +30,8 @@ public final class FeedingActivity extends Activity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feeding);
 
-        Intent intent = getIntent();
-        String serial = intent.getStringExtra("serial");
+        final Intent intent = getIntent();
+        final String serial = intent.getStringExtra("serial");
 
         textViewFeeding = (TextView) findViewById(R.id.text_view_feeding);
         mViews = new LinkedList<View>();
@@ -41,7 +40,7 @@ public final class FeedingActivity extends Activity implements
         sendPOSTFeedRequest(serial);
     }
 
-    public void sendPOSTFeedRequest(String serial) {
+    public void sendPOSTFeedRequest(final String serial) {
         final String params = "&" + APIUtils.putAttrs("serial", serial)
                 + "&" + APIUtils.putAttrs("feed", "true");
 
@@ -54,15 +53,16 @@ public final class FeedingActivity extends Activity implements
     }
 
     @Override
-    public void callbackPostJSON(JSONObject json) {
+    public void callbackPostJSON(final JSONObject json) {
         final JSONObject status = Preconditions.checkNotNull(json);
 
         try {
             if (status.has("status")
                     && status.getString("status").equalsIgnoreCase("failed")) {
-                PetRemotoUtils.showToast(this, status.getString("err"));
+                //                PetRemotoUtils.showToast(this, status.getString("err"));
+                textViewFeeding.setText("Houve algum problema, tente novamente mais tarde. :(");
             } else {
-                PetRemotoUtils.showToast(this, status.getString("msg"));
+                //                PetRemotoUtils.showToast(this, status.getString("msg"));
                 textViewFeeding.setText("Alimentado!");
             }
         } catch (final JSONException e) {
